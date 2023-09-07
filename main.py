@@ -21,3 +21,12 @@ class Matrix:
             result.print_matrix()
         else:
             print('The dimensions of the matrices do not match!')
+
+    def diff(self, mtx):
+        if self.rows == mtx.rows and self.columns == mtx.columns:
+            result = Matrix(self.rows, self.columns)
+            result.matrix = [[self.matrix[i][j] - mtx.matrix[i][j] for j in range(int(result.columns))]
+                             for i in range(int(result.rows))]
+            result.print_matrix()
+        else:
+            print('The dimensions of the matrices do not match!')
