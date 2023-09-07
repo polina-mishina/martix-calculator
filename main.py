@@ -39,3 +39,9 @@ class Matrix:
             result.print_matrix()
         else:
             print("Incorrect dimensions of matrices!")
+
+    def multiply_by_number(self, num):
+        result = Matrix(self.rows, self.columns)
+        result.matrix = [[self.matrix[i][j] * num for j in range(int(result.columns))]
+                         for i in range(int(result.rows))]
+        result.print_matrix()
