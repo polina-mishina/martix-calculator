@@ -30,3 +30,12 @@ class Matrix:
             result.print_matrix()
         else:
             print('The dimensions of the matrices do not match!')
+
+    def multiply(self, mtx):
+        if self.columns == mtx.rows:
+            result = Matrix(self.rows, mtx.columns)
+            result.matrix = [[sum(self.matrix[i][k] * mtx.matrix[k][j] for k in range(int(mtx.rows)))
+                              for j in range(int(mtx.columns))] for i in range(int(self.rows))]
+            result.print_matrix()
+        else:
+            print("Incorrect dimensions of matrices!")
