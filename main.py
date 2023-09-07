@@ -99,3 +99,70 @@ class Matrix:
             matrix_c.multiply_by_number(1 / det).transpose()
         else:
             print("This matrix doesn't have an inverse!")
+
+
+def menu():
+    while True:
+        print("\n1) Add matrices\n2) Subtract matrices\n3) Multiply matrices\n4) Multiply matrix by a constant\n"
+              "5) Transpose matrix\n6) Calculate a determinant\n7) Inverse matrix\n0) Exit")
+        choice = input("You choice: ")
+        if choice != "0":
+            rows = input("Enter number of rows of matrix: ")
+            columns = input("Enter number of columns of matrix: ")
+            matrix_a = Matrix(rows, columns)
+            print("Enter matrix: ")
+            matrix_a.create()
+
+        if choice == "1":
+            rows = input("Enter number of rows of second matrix: ")
+            columns = input("Enter number of columns of second matrix: ")
+            matrix_b = Matrix(rows, columns)
+            print("Enter second matrix: ")
+            matrix_b.create()
+
+            print("The result is:")
+            matrix_a.add(matrix_b)
+
+        elif choice == "2":
+            rows = input("Enter number of rows of second matrix: ")
+            columns = input("Enter number of columns of second matrix: ")
+            matrix_b = Matrix(rows, columns)
+            print("Enter second matrix: ")
+            matrix_b.create()
+
+            print("The result is:")
+            matrix_a.diff(matrix_b)
+
+        elif choice == "3":
+            rows = input("Enter number of rows of second matrix: ")
+            columns = input("Enter number of columns of second matrix: ")
+            matrix_b = Matrix(rows, columns)
+            print("Enter second matrix: ")
+            matrix_b.create()
+
+            print("The result is:")
+            matrix_a.multiply(matrix_b)
+
+        elif choice == "4":
+            const = float(input("Enter constant: "))
+            print("The result is:")
+            matrix_a.multiply_by_number(const).print_matrix()
+
+        elif choice == "5":
+            print("The result is:")
+            matrix_a.transpose()
+
+        elif choice == "6":
+            det = Matrix.determinant(matrix_a.matrix)
+            if det is not None and det >= 0:
+                print(f"The result is: {det}")
+
+        elif choice == "7":
+            print("The result is:")
+            matrix_a.inverse()
+
+        else:
+            break
+
+
+menu()
