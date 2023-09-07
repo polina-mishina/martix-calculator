@@ -45,3 +45,8 @@ class Matrix:
         result.matrix = [[self.matrix[i][j] * num for j in range(int(result.columns))]
                          for i in range(int(result.rows))]
         result.print_matrix()
+
+    def transpose(self):
+        result = Matrix(self.columns, self.rows)
+        result.matrix = [[self.matrix[j][i] for j in range(int(self.rows))] for i in range(int(self.columns))]
+        result.print_matrix()
